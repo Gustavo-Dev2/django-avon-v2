@@ -28,7 +28,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = env.str("SECRET_KEY")
 DEBUG = env.bool('DEBUG', default=False)
+
 ALLOWED_HOSTS = ['*']
+
+CORS_ALLOWED_ORIGIN = [
+    'http://localhost:5173'
+    'http://10.0.0.37:5173'
+    
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:5173',
+    'http://10.0.0.37:5173',
+]
 
 # Configuración básica
 SECRET_KEY = env.str("SECRET_KEY")
