@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import environ
+import dj_database_url
 
 # Inicialización de django-environ
 env = environ.Env()
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
+    'rest_framework',
     'cloudinary_storage',
     'cloudinary',
     "corsheaders",
@@ -96,12 +98,18 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
+if DEBUG:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config(default=env.str("DATABASE_URL"))
+    }
+
 
 
 # Password validation
