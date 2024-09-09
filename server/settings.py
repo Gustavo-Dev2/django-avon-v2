@@ -35,13 +35,13 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://10.0.0.37:5173',
-    'https://tavone.vercel.app/',
+    'https://tavone.vercel.app',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:5173',
     'http://10.0.0.37:5173',
-    'https://tavone.vercel.app/',
+    'https://tavone.vercel.app',
 ]
 
 # Configuración básica
